@@ -1,22 +1,19 @@
 import React from 'react';
+import { Header } from './components';
+import { Route, Routes } from 'react-router-dom';
+import { AppRoutes } from './constants';
+import { MainPage, ToysPage, TreePage } from './pages';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path={AppRoutes.MAIN} element={<MainPage />} />
+        <Route path={AppRoutes.TOYS} element={<ToysPage />} />
+        <Route path={AppRoutes.TREE} element={<TreePage />} />
+      </Routes>
+    </>
   );
 }
 
