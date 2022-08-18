@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-const font = 'Helvetica Neue, sans-serif';
+const font = 'Helvetica Neue, serif';
 const filter = 'blur(5px)';
 const primary = '#121C1E';
 const secondary = '#278D9F';
