@@ -12,6 +12,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: inherit;
     font-family: ${theme.font};
+    color: ${theme.colors.text}
   }
 
   html, body {
@@ -20,6 +21,8 @@ export default createGlobalStyle`
   }
   
   body {
+    background-color: ${theme.colors.primary};
+    
     & > #root {
       width: 100%;
       height: 100%;

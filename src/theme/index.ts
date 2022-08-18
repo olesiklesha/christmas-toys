@@ -5,9 +5,6 @@ const secondary = '#278D9F';
 const transpBg = 'rgba(31, 112, 127, 0.3)';
 const text = '#ffffff';
 
-// 16, 18 , 20, 22, 30,  40
-// xs, s, m, ml, l, xl
-
 export default {
   filter,
   font,

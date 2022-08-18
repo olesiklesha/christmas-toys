@@ -1,7 +1,8 @@
 import React from 'react';
+import { CustomHeader } from './styles';
 
 const Header = () => {
-  return <div>this is header</div>;
+  return <CustomHeader>this is header</CustomHeader>;
 };
 
 export default Header;
