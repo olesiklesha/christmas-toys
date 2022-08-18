@@ -1,8 +1,17 @@
 import React from 'react';
-import { CustomHeader } from './styles';
+import { CustomHeader, CustomLink, IconLink, NavContainer } from './styles';
+import { AppRoutes } from '../../constants';
 
 const Header = () => {
-  return <CustomHeader>this is header</CustomHeader>;
+  return (
+    <CustomHeader>
+      <NavContainer>
+        <IconLink to={AppRoutes.MAIN} />
+        <CustomLink to={AppRoutes.TOYS}>toys</CustomLink>
+        <CustomLink to={AppRoutes.TREE}>Christmas tree</CustomLink>
+      </NavContainer>
+    </CustomHeader>
+  );
 };
 
 export default Header;

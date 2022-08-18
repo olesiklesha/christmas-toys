@@ -4,15 +4,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyles from './global-styles';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-      <GlobalStyles />
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+        <GlobalStyles />
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
