@@ -7,4 +7,5 @@ export const CardsContainer = styled.div`
   row-gap: 20px;
   column-gap: 20px;
   padding-bottom: 30px;
+  justify-content: center;
 `;
