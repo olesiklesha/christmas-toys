@@ -1,7 +1,12 @@
 import React from 'react';
+import { BlurContainer, MainContainer } from '../../common-styled-components';
 
 const Tree = () => {
-  return <div>this is tree page</div>;
+  return (
+    <MainContainer>
+      <BlurContainer>this is tree page</BlurContainer>
+    </MainContainer>
+  );
 };
 
 export default Tree;

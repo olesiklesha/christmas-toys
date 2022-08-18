@@ -1,7 +1,12 @@
 import React from 'react';
+import { BlurContainer, MainContainer } from '../../common-styled-components';
 
 const Toys = () => {
-  return <div>this is toys page</div>;
+  return (
+    <MainContainer>
+      <BlurContainer>this is toys page</BlurContainer>
+    </MainContainer>
+  );
 };
 
 export default Toys;

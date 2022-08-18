@@ -1,7 +1,12 @@
 import React from 'react';
+import { Container, MainContainer } from '../../common-styled-components';
 
 const Main = () => {
-  return <div>this is main page</div>;
+  return (
+    <MainContainer>
+      <Container>this is main page</Container>
+    </MainContainer>
+  );
 };
 
 export default Main;

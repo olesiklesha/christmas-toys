@@ -13,6 +13,7 @@ export const CustomHeader = styled.header`
   max-width: 1600px;
   margin: 0 auto;
   height: 70px;
+  padding: 0 10px;
 `;
 
 export const CustomLink = styled(NavLink)`
