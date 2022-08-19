@@ -13,7 +13,7 @@ const Card: FC<IToy> = ({ name, num, count, favorite, shape, size, year, color }
         <Text>Shape: {shape}</Text>
         <Text>Color: {color}</Text>
         <Text>Size: {size}</Text>
-        <Text>Favorite: {favorite}</Text>
+        <Text>Favorite: {favorite ? 'Yes' : 'No'}</Text>
       </TextContainer>
     </Container>
   );
