@@ -1,6 +1,7 @@
 import React from 'react';
 import { Block, BlockTitle, Field } from '../FiltersSection/styles';
 import { COLORS, SHAPES, SIZES } from '../../constants';
+import { ShapesCBWrapper, ShapesCheckbox } from './styles';
 
 const FilterByValuer = () => {
   return (
@@ -8,10 +9,11 @@ const FilterByValuer = () => {
       <BlockTitle>filters by value</BlockTitle>
       <Field>
         Shapes:{' '}
-        {SHAPES.map((el) => (
-          <label key={el}>
-            <input type="checkbox" name="shapes" value={el} />
-          </label>
+        {SHAPES.map((el, i) => (
+          <ShapesCBWrapper key={el + i}>
+            <ShapesCheckbox type="checkbox" name="shapes" value={el} id={el} />
+            <label htmlFor={el} />
+          </ShapesCBWrapper>
         ))}
       </Field>
       <Field>
