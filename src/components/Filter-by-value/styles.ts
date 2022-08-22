@@ -57,3 +57,31 @@ export const ShapesCBWrapper = styled.div`
     background-image: url(${figure});
   }
 `;
+
+export const SizesCheckbox = styled(ShapesCheckbox)`
+  & + label::before {
+    background-image: url(${ball});
+    background-repeat: no-repeat;
+  }
+
+  &:checked + label::before {
+    filter: invert(42%) sepia(77%) saturate(401%) hue-rotate(141deg) brightness(96%) contrast(92%);
+  }
+`;
+
+export const SizesCBWrapper = styled.div`
+  &:nth-of-type(1) ${SizesCheckbox} + label::before {
+    -webkit-background-size: 40px 40px;
+    background-size: 40px 40px;
+  }
+
+  &:nth-of-type(2) ${SizesCheckbox} + label::before {
+    -webkit-background-size: 35px 35px;
+    background-size: 35px 35px;
+  }
+
+  &:nth-of-type(3) ${SizesCheckbox} + label::before {
+    -webkit-background-size: 30px 30px;
+    background-size: 30px 30px;
+  }
+`;
