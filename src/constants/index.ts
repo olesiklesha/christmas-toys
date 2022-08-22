@@ -13,3 +13,9 @@ export const MIN_COUNT = 1;
 export const MAX_COUNT = 12;
 
 export const MAX_QUANTITY = 20;
+
+export const SHAPES = ['ball', 'bell', 'cone', 'snowflake', 'figure'];
+
+export const COLORS = ['white', 'yellow', 'red', 'blue', 'green'];
+
+export const SIZES = ['big', 'medium', 'small'];

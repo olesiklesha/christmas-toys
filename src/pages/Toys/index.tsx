@@ -3,7 +3,7 @@ import { BlurContainer, MainContainer } from '../../common-styled-components';
 import { CardsContainer, Wrapper } from './styles';
 import toys from '../../data/toys-data.json';
 import { IToy } from '../../models';
-import { Card, Filter } from '../../components';
+import { Card, FiltersSection } from '../../components';
 
 const Toys = () => {
   // plug
@@ -13,7 +13,7 @@ const Toys = () => {
     <MainContainer>
       <BlurContainer>
         <Wrapper>
-          <Filter />
+          <FiltersSection />
           <CardsContainer>
             {data.map((el) => (
               <Card {...el} key={el.num} />
