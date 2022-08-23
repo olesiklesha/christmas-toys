@@ -1,6 +1,6 @@
 import React from 'react';
 import { Block, BlockTitle } from '../FiltersSection/styles';
-import { SearchInput, Select } from './styles';
+import { BtnContainer, Button, Quantity, SearchInput, Select } from './styles';
 
 const FilterBySort = () => {
   return (
@@ -19,6 +19,11 @@ const FilterBySort = () => {
         <option value="new">First the new ones</option>
         <option value="old">First the old ones</option>
       </Select>
+      <BtnContainer>
+        <Button>Reset filters</Button>
+        <Button>Reset memory</Button>
+      </BtnContainer>
+      <Quantity>2</Quantity>
     </Block>
   );
 };

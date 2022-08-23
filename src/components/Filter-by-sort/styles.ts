@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import searchIcon from '../../assets/icons/search.svg';
 import arrow from '../../assets/icons/down.svg';
+import ball from '../../assets/icons/ball-3.svg';
 
 export const SearchInput = styled.input.attrs({ type: 'search' })`
   width: 80%;
@@ -62,4 +63,36 @@ export const Select = styled.select`
     background-color: #183e42;
     border: none;
   }
+`;
+
+export const BtnContainer = styled.div`
+  display: flex;
+  width: 360px;
+  justify-content: space-between;
+`;
+
+export const Button = styled.button`
+  width: 170px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: ${(p) => p.theme.colors.transpBg};
+  border: 2px solid ${(p) => p.theme.colors.secondary};
+  color: #fff;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  backdrop-filter: ${(p) => p.theme.filter};
+  cursor: pointer;
+`;
+
+export const Quantity = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 60px;
+  background-image: url(${ball});
+  background-size: 50px 54px;
+  background-repeat: no-repeat;
 `;
