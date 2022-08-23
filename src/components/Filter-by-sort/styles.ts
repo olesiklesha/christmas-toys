@@ -11,7 +11,7 @@ export const SearchInput = styled.input.attrs({ type: 'search' })`
   outline: 0;
   border-radius: 20px;
   border: 2px solid ${(p) => p.theme.colors.secondary};
-  color: #fff;
+  color: ${(p) => p.theme.colors.text};
   background-color: ${(p) => p.theme.colors.transpBg};
   background-size: 20px;
   background-repeat: no-repeat;
@@ -24,13 +24,13 @@ export const SearchInput = styled.input.attrs({ type: 'search' })`
   }
 
   &::placeholder {
-    color: #fff;
+    color: ${(p) => p.theme.colors.text};
     padding-left: 2px;
     font-size: ${(p) => p.theme.fontSizes.s};
   }
 
   &::-webkit-search-cancel-button {
-    color: #fff;
+    color: ${(p) => p.theme.colors.text};
     -webkit-appearance: none;
     height: 22px;
     width: 22px;
@@ -48,7 +48,7 @@ export const Select = styled.select`
   outline: 0;
   border-radius: 20px;
   border: 2px solid ${(p) => p.theme.colors.secondary};
-  color: #fff;
+  color: ${(p) => p.theme.colors.text};
   background-color: ${(p) => p.theme.colors.transpBg};
   background-size: 20px;
   background-repeat: no-repeat;
@@ -77,7 +77,7 @@ export const Button = styled.button`
   border-radius: 20px;
   background-color: ${(p) => p.theme.colors.transpBg};
   border: 2px solid ${(p) => p.theme.colors.secondary};
-  color: #fff;
+  color: ${(p) => p.theme.colors.text};
   font-size: ${(p) => p.theme.fontSizes.s};
   backdrop-filter: ${(p) => p.theme.filter};
   cursor: pointer;
