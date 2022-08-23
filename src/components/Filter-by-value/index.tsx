@@ -1,7 +1,15 @@
 import React from 'react';
 import { Block, BlockTitle, Field } from '../FiltersSection/styles';
 import { COLORS, SHAPES, SIZES } from '../../constants';
-import { ShapesCBWrapper, ShapesCheckbox, SizesCBWrapper, SizesCheckbox } from './styles';
+import {
+  ColorsCBWrapper,
+  ColorsCheckbox,
+  FavouritesCheckbox,
+  ShapesCBWrapper,
+  ShapesCheckbox,
+  SizesCBWrapper,
+  SizesCheckbox,
+} from './styles';
 
 const FilterByValuer = () => {
   return (
@@ -19,16 +27,17 @@ const FilterByValuer = () => {
       <Field>
         Colors:{' '}
         {COLORS.map((el) => (
-          <label key={el}>
-            <input type="checkbox" name="sizes" value={el} />
-          </label>
+          <ColorsCBWrapper key={el + 1}>
+            <ColorsCheckbox type="checkbox" name="colors" value={el} id={el} />
+            <label htmlFor={el} />
+          </ColorsCBWrapper>
         ))}
       </Field>
       <Field>
         Sizes:{' '}
         {SIZES.map((el) => (
           <SizesCBWrapper key={el}>
-            <SizesCheckbox type="checkbox" name="colors" value={el} />
+            <SizesCheckbox type="checkbox" name="sizes" value={el} id={el} />
             <label htmlFor={el} />
           </SizesCBWrapper>
         ))}
@@ -36,9 +45,10 @@ const FilterByValuer = () => {
       <Field>
         Only favourite:{' '}
         {
-          <label>
-            <input type="checkbox" name="favourite" />
-          </label>
+          <>
+            <FavouritesCheckbox type="checkbox" name="favourite" id="favourite" />
+            <label htmlFor="favourite" />
+          </>
         }
       </Field>
     </Block>
