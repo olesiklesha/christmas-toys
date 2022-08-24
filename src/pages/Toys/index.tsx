@@ -1,13 +1,15 @@
 import React from 'react';
 import { BlurContainer, MainContainer } from '../../common-styled-components';
 import { CardsContainer, Wrapper } from './styles';
-import toys from '../../data/toys-data.json';
-import { IToy } from '../../models';
 import { Card, FiltersSection } from '../../components';
+import { useAppSelector } from '../../hooks';
+import { sortToys } from '../../utils';
 
-const data = toys as IToy[];
 const Toys = () => {
-  // plug
+  const params = useAppSelector((state) => state.filtersSlice);
+  console.log(params);
+  const data = sortToys(params);
+  console.log(data);
 
   return (
     <MainContainer>

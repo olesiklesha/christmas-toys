@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Range } from 'react-input-range';
 import { MAX_COUNT, MAX_YEAR, MIN_COUNT, MIN_YEAR } from '../../../constants';
 
-interface FiltersSliceState {
+export interface FiltersSliceState {
   values: IValueFilters;
   copiesRange: Range;
   yearsRange: Range;
@@ -35,6 +35,9 @@ export const filtersSlice = createSlice({
     },
     updateSorting(state, action: PayloadAction<ISortFilters>) {
       state.sorting = action.payload;
+    },
+    reset(state) {
+      state = initialState;
     },
   },
 });

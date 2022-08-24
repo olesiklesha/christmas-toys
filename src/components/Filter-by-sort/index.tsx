@@ -16,8 +16,12 @@ const FilterBySort = () => {
     onSubmit: () => {},
   });
 
-  const handleReset = useCallback(() => {
+  const handleResetMemory = useCallback(() => {
     dispatch(selectedToysSlice.actions.reset());
+  }, [dispatch]);
+
+  const handleResetFilters = useCallback(() => {
+    dispatch(filtersSlice.actions.reset());
   }, [dispatch]);
 
   useEffect(() => {
@@ -44,8 +48,8 @@ const FilterBySort = () => {
           <option value="old">First the old ones</option>
         </Select>
         <BtnContainer>
-          <Button>Reset filters</Button>
-          <Button onClick={handleReset}>Reset memory</Button>
+          <Button onClick={handleResetFilters}>Reset filters</Button>
+          <Button onClick={handleResetMemory}>Reset memory</Button>
         </BtnContainer>
         <QuantityCounter />
       </form>
