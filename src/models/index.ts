@@ -15,3 +15,8 @@ export interface IValueFilters {
   sizes: string[];
   favourite: boolean;
 }
+
+export interface ISortFilters {
+  search: string;
+  sort: string;
+}
