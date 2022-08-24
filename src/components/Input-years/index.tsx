@@ -2,13 +2,21 @@ import React, { useCallback, useState } from 'react';
 import { Container, Output } from '../Filter-by-range/styles';
 import InputRange, { Range } from 'react-input-range';
 import { MAX_YEAR, MIN_YEAR } from '../../constants';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { filtersSlice } from '../../store/reducers/filters-slice';
 
 const YearsInput = () => {
-  const [yearsState, setYearsState] = useState<Range>({ min: MIN_YEAR, max: MAX_YEAR });
+  const { yearsRange } = useAppSelector((state) => state.filtersSlice);
+  const [yearsState, setYearsState] = useState<Range>(yearsRange);
+  const dispatch = useAppDispatch();
 
-  const handleChange = useCallback((value: Range | number) => {
-    setYearsState(value as Range);
-  }, []);
+  const handleChange = useCallback(
+    (value: Range | number) => {
+      setYearsState(value as Range);
+      dispatch(filtersSlice.actions.updateYearsRange(value as Range));
+    },
+    [dispatch]
+  );
 
   return (
     <Container>

@@ -12,14 +12,13 @@ import {
 } from './styles';
 import { Field, Form, Formik } from 'formik';
 import { ContextCatcher } from '../index';
+import { useAppSelector } from '../../hooks';
 
 const FilterByValuer = () => {
+  const { values } = useAppSelector((state) => state.filtersSlice);
   return (
     <Block>
-      <Formik
-        initialValues={{ shapes: [], colors: [], sizes: [], favourite: false }}
-        onSubmit={() => {}}
-      >
+      <Formik initialValues={values} onSubmit={() => {}}>
         {() => (
           <Form>
             <BlockTitle>filters by value</BlockTitle>

@@ -2,13 +2,21 @@ import React, { useCallback, useState } from 'react';
 import { Container, Output } from '../Filter-by-range/styles';
 import InputRange, { Range } from 'react-input-range';
 import { MAX_COUNT, MIN_COUNT } from '../../constants';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { filtersSlice } from '../../store/reducers/filters-slice';
 
 const CopiesInput = () => {
-  const [copiesState, setCopiesState] = useState<Range>({ min: MIN_COUNT, max: MAX_COUNT });
+  const { copiesRange } = useAppSelector((state) => state.filtersSlice);
+  const [copiesState, setCopiesState] = useState<Range>(copiesRange);
+  const dispatch = useAppDispatch();
 
-  const handleChange = useCallback((value: Range | number) => {
-    setCopiesState(value as Range);
-  }, []);
+  const handleChange = useCallback(
+    (value: Range | number) => {
+      setCopiesState(value as Range);
+      dispatch(filtersSlice.actions.updateCopiesRange(value as Range));
+    },
+    [dispatch]
+  );
 
   return (
     <Container>
