@@ -19,3 +19,5 @@ export const SHAPES = ['ball', 'bell', 'cone', 'snowflake', 'figure'];
 export const COLORS = ['white', 'yellow', 'red', 'blue', 'green'];
 
 export const SIZES = ['big', 'medium', 'small'];
+
+export const SELECTED_LS = 'ct_ls_st';

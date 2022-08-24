@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Block, BlockTitle } from '../FiltersSection/styles';
 import { BtnContainer, Button, SearchInput, Select } from './styles';
 import { QuantityCounter } from '../index';
+import { useAppDispatch } from '../../hooks';
+import { selectedToysSlice } from '../../store/reducers/selected-toys-slice';
 
 const FilterBySort = () => {
+  const dispatch = useAppDispatch();
+
+  const handleReset = useCallback(() => {
+    console.log('++');
+    dispatch(selectedToysSlice.actions.reset());
+  }, [dispatch]);
+
   return (
     <Block>
       <BlockTitle>sorting</BlockTitle>
@@ -22,7 +31,7 @@ const FilterBySort = () => {
       </Select>
       <BtnContainer>
         <Button>Reset filters</Button>
-        <Button>Reset memory</Button>
+        <Button onClick={handleReset}>Reset memory</Button>
       </BtnContainer>
       <QuantityCounter />
     </Block>

@@ -1,12 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { SELECTED_LS } from '../../../constants';
 
 interface SelectedToysState {
   selected: string[];
 }
 
-const initialState: SelectedToysState = {
-  selected: [],
-};
+const store = window.localStorage.getItem(SELECTED_LS);
+const initialState: SelectedToysState = store
+  ? (JSON.parse(store) as SelectedToysState)
+  : {
+      selected: [],
+    };
 
 export const selectedToysSlice = createSlice({
   name: 'selected',
@@ -22,7 +26,11 @@ export const selectedToysSlice = createSlice({
         selected.push(payload);
       }
 
-      window.localStorage.setItem('s', JSON.stringify(state));
+      window.localStorage.setItem(SELECTED_LS, JSON.stringify(state));
+    },
+    reset(state) {
+      state.selected = [];
+      window.localStorage.removeItem(SELECTED_LS);
     },
   },
 });
