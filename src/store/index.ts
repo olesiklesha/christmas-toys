@@ -1,6 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import selectedToysSlice from './reducers/selected-toys-slice';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  selectedToysSlice,
+});
 
 export const setupStore = () => {
   return configureStore({

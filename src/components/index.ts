@@ -6,3 +6,4 @@ export { default as FilterByRange } from './Filter-by-range';
 export { default as FilterBySort } from './Filter-by-sort';
 export { default as YearsInput } from './Input-years';
 export { default as CopiesInput } from './Input-copies';
+export { default as QuantityCounter } from './Quantity-counter';
