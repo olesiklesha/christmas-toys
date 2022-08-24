@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Block, BlockTitle, Field as FieldWrapper } from '../FiltersSection/styles';
 import { COLORS, SHAPES, SIZES } from '../../constants';
 import {
@@ -10,26 +10,15 @@ import {
   SizesCBWrapper,
   SizesCheckbox,
 } from './styles';
-import { Field, Form, Formik, useFormikContext } from 'formik';
-
-const Test = () => {
-  const { values } = useFormikContext();
-
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
-
-  return null;
-};
+import { Field, Form, Formik } from 'formik';
+import { ContextCatcher } from '../index';
 
 const FilterByValuer = () => {
   return (
     <Block>
       <Formik
         initialValues={{ shapes: [], colors: [], sizes: [], favourite: false }}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={() => {}}
       >
         {() => (
           <Form>
@@ -70,7 +59,7 @@ const FilterByValuer = () => {
                 </>
               }
             </FieldWrapper>
-            <Test />
+            <ContextCatcher />
           </Form>
         )}
       </Formik>

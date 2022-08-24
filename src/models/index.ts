@@ -8,3 +8,10 @@ export interface IToy {
   size: string;
   favorite: boolean;
 }
+
+export interface IValueFilters {
+  shapes: string[];
+  colors: string[];
+  sizes: string[];
+  favourite: boolean;
+}

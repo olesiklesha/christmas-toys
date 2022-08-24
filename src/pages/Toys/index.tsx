@@ -5,9 +5,9 @@ import toys from '../../data/toys-data.json';
 import { IToy } from '../../models';
 import { Card, FiltersSection } from '../../components';
 
+const data = toys as IToy[];
 const Toys = () => {
   // plug
-  const data = toys as IToy[];
 
   return (
     <MainContainer>
