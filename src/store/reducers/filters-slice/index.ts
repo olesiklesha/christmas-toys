@@ -10,7 +10,7 @@ export interface FiltersSliceState {
   sorting: ISortFilters;
 }
 
-const initialState: FiltersSliceState = {
+export const initialState: FiltersSliceState = {
   values: { shapes: [], colors: [], sizes: [], favourite: false },
   copiesRange: { min: MIN_COUNT, max: MAX_COUNT },
   yearsRange: { min: MIN_YEAR, max: MAX_YEAR },
@@ -37,7 +37,10 @@ export const filtersSlice = createSlice({
       state.sorting = action.payload;
     },
     reset(state) {
-      state = initialState;
+      state.sorting = initialState.sorting;
+      state.values = initialState.values;
+      state.copiesRange = initialState.copiesRange;
+      state.yearsRange = initialState.yearsRange;
     },
   },
 });

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Block, BlockTitle, Field as FieldWrapper } from '../FiltersSection/styles';
 import { COLORS, SHAPES, SIZES } from '../../constants';
+import { Field, Form, Formik } from 'formik';
+import { ContextCatcher } from '../index';
+import { useAppSelector } from '../../hooks';
 import {
   ColorsCBWrapper,
   ColorsCheckbox,
@@ -10,12 +13,10 @@ import {
   SizesCBWrapper,
   SizesCheckbox,
 } from './styles';
-import { Field, Form, Formik } from 'formik';
-import { ContextCatcher } from '../index';
-import { useAppSelector } from '../../hooks';
 
 const FilterByValuer = () => {
   const { values } = useAppSelector((state) => state.filtersSlice);
+
   return (
     <Block>
       <Formik initialValues={values} onSubmit={() => {}}>

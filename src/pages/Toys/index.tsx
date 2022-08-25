@@ -7,9 +7,7 @@ import { sortToys } from '../../utils';
 
 const Toys = () => {
   const params = useAppSelector((state) => state.filtersSlice);
-  console.log(params);
   const data = sortToys(params);
-  console.log(data);
 
   return (
     <MainContainer>
