@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Container, Output } from '../Filter-by-range/styles';
 import InputRange, { Range } from 'react-input-range';
-import { MAX_YEAR, MIN_YEAR } from '../../constants';
+import { FILTERS_INIT_STATE, MAX_YEAR, MIN_YEAR } from '../../constants';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { filtersSlice, initialState } from '../../store/reducers/filters-slice';
+import { updateYearsRange } from '../../store/reducers/filters-slice';
 
 const YearsInput = () => {
   const state = useAppSelector((state) => state.filtersSlice);
@@ -14,14 +14,14 @@ const YearsInput = () => {
   const handleChange = useCallback(
     (value: Range | number) => {
       setYearsState(value as Range);
-      dispatch(filtersSlice.actions.updateYearsRange(value as Range));
+      dispatch(updateYearsRange(value as Range));
     },
     [dispatch]
   );
 
   useEffect(() => {
-    if (JSON.stringify(state) === JSON.stringify(initialState)) {
-      setYearsState(initialState.yearsRange);
+    if (JSON.stringify(state) === JSON.stringify(FILTERS_INIT_STATE)) {
+      setYearsState(FILTERS_INIT_STATE.yearsRange);
     }
   }, [state]);
 

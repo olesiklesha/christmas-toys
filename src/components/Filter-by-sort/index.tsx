@@ -3,9 +3,10 @@ import { Block, BlockTitle } from '../FiltersSection/styles';
 import { BtnContainer, Button, SearchInput, Select } from './styles';
 import { QuantityCounter } from '../index';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { selectedToysSlice } from '../../store/reducers/selected-toys-slice';
 import { useFormik } from 'formik';
-import { filtersSlice, initialState } from '../../store/reducers/filters-slice';
+import { resetSelectedToys } from '../../store/reducers/selected-toys-slice';
+import { resetFilters, updateSorting } from '../../store/reducers/filters-slice';
+import { FILTERS_INIT_STATE } from '../../constants';
 
 const FilterBySort = () => {
   const state = useAppSelector((state) => state.filtersSlice);
@@ -18,22 +19,22 @@ const FilterBySort = () => {
   });
 
   const handleResetMemory = useCallback(() => {
-    dispatch(selectedToysSlice.actions.reset());
+    dispatch(resetSelectedToys());
   }, [dispatch]);
 
   const handleResetFilters = useCallback(() => {
-    dispatch(filtersSlice.actions.reset());
+    dispatch(resetFilters());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(filtersSlice.actions.updateSorting(formik.values));
+    dispatch(updateSorting(formik.values));
   }, [formik.values, dispatch]);
 
   useEffect(() => {
-    if (JSON.stringify(state) === JSON.stringify(initialState)) {
+    if (JSON.stringify(state) === JSON.stringify(FILTERS_INIT_STATE)) {
       formik.resetForm();
     }
-  }, [state, formik]);
+  }, [state]);
 
   return (
     <Block>

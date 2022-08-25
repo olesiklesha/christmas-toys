@@ -1,7 +1,7 @@
 import { ISortFilters, IValueFilters } from '../../../models';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Range } from 'react-input-range';
-import { MAX_COUNT, MAX_YEAR, MIN_COUNT, MIN_YEAR } from '../../../constants';
+import { FILTERS_INIT_STATE, FILTERS_LS } from '../../../constants';
 
 export interface FiltersSliceState {
   values: IValueFilters;
@@ -10,15 +10,11 @@ export interface FiltersSliceState {
   sorting: ISortFilters;
 }
 
-export const initialState: FiltersSliceState = {
-  values: { shapes: [], colors: [], sizes: [], favourite: false },
-  copiesRange: { min: MIN_COUNT, max: MAX_COUNT },
-  yearsRange: { min: MIN_YEAR, max: MAX_YEAR },
-  sorting: {
-    search: '',
-    sort: 'str-max',
-  },
-};
+const store = window.localStorage.getItem(FILTERS_LS);
+
+export const initialState: FiltersSliceState = store
+  ? (JSON.parse(store) as FiltersSliceState)
+  : FILTERS_INIT_STATE;
 
 export const filtersSlice = createSlice({
   name: 'filters',
@@ -26,23 +22,30 @@ export const filtersSlice = createSlice({
   reducers: {
     updateFilters(state, action: PayloadAction<IValueFilters>) {
       state.values = action.payload;
+      window.localStorage.setItem(FILTERS_LS, JSON.stringify(state));
     },
     updateCopiesRange(state, action: PayloadAction<Range>) {
       state.copiesRange = action.payload;
+      window.localStorage.setItem(FILTERS_LS, JSON.stringify(state));
     },
     updateYearsRange(state, action: PayloadAction<Range>) {
       state.yearsRange = action.payload;
+      window.localStorage.setItem(FILTERS_LS, JSON.stringify(state));
     },
     updateSorting(state, action: PayloadAction<ISortFilters>) {
       state.sorting = action.payload;
+      window.localStorage.setItem(FILTERS_LS, JSON.stringify(state));
     },
-    reset(state) {
-      state.sorting = initialState.sorting;
-      state.values = initialState.values;
-      state.copiesRange = initialState.copiesRange;
-      state.yearsRange = initialState.yearsRange;
+    resetFilters(state) {
+      state.sorting = FILTERS_INIT_STATE.sorting;
+      state.values = FILTERS_INIT_STATE.values;
+      state.copiesRange = FILTERS_INIT_STATE.copiesRange;
+      state.yearsRange = FILTERS_INIT_STATE.yearsRange;
+      window.localStorage.setItem(FILTERS_LS, JSON.stringify(state));
     },
   },
 });
 
+export const { updateCopiesRange, updateYearsRange, updateFilters, updateSorting, resetFilters } =
+  filtersSlice.actions;
 export default filtersSlice.reducer;

@@ -2,7 +2,7 @@ import React, { FC, useCallback } from 'react';
 import { IToy } from '../../models';
 import { Container, Picture, Text, TextContainer, Title } from './styles';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { selectedToysSlice } from '../../store/reducers/selected-toys-slice';
+import { toggleSelectedToys } from '../../store/reducers/selected-toys-slice';
 import { MAX_QUANTITY } from '../../constants';
 
 const Card: FC<IToy> = ({ name, num, count, favorite, shape, size, year, color }) => {
@@ -13,7 +13,7 @@ const Card: FC<IToy> = ({ name, num, count, favorite, shape, size, year, color }
     if (!selected.includes(num) && selected.length === MAX_QUANTITY) {
       alert('adsf');
     } else {
-      dispatch(selectedToysSlice.actions.toggleSelectedToys(num));
+      dispatch(toggleSelectedToys(num));
     }
   }, [dispatch, selected, num]);
 

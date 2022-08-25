@@ -28,11 +28,12 @@ export const selectedToysSlice = createSlice({
 
       window.localStorage.setItem(SELECTED_LS, JSON.stringify(state));
     },
-    reset(state) {
+    resetSelectedToys(state) {
       state.selected = [];
       window.localStorage.removeItem(SELECTED_LS);
     },
   },
 });
 
+export const { toggleSelectedToys, resetSelectedToys } = selectedToysSlice.actions;
 export default selectedToysSlice.reducer;

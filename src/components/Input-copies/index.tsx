@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Container, Output } from '../Filter-by-range/styles';
 import InputRange, { Range } from 'react-input-range';
-import { MAX_COUNT, MIN_COUNT } from '../../constants';
+import { FILTERS_INIT_STATE, MAX_COUNT, MIN_COUNT } from '../../constants';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { filtersSlice, initialState } from '../../store/reducers/filters-slice';
+import { updateCopiesRange } from '../../store/reducers/filters-slice';
 
 const CopiesInput = () => {
   const state = useAppSelector((state) => state.filtersSlice);
@@ -14,14 +14,14 @@ const CopiesInput = () => {
   const handleChange = useCallback(
     (value: Range | number) => {
       setCopiesState(value as Range);
-      dispatch(filtersSlice.actions.updateCopiesRange(value as Range));
+      dispatch(updateCopiesRange(value as Range));
     },
     [dispatch]
   );
 
   useEffect(() => {
-    if (JSON.stringify(state) === JSON.stringify(initialState)) {
-      setCopiesState(initialState.copiesRange);
+    if (JSON.stringify(state) === JSON.stringify(FILTERS_INIT_STATE)) {
+      setCopiesState(FILTERS_INIT_STATE.copiesRange);
     }
   }, [state]);
 
