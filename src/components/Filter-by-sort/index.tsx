@@ -5,10 +5,11 @@ import { QuantityCounter } from '../index';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { selectedToysSlice } from '../../store/reducers/selected-toys-slice';
 import { useFormik } from 'formik';
-import { filtersSlice } from '../../store/reducers/filters-slice';
+import { filtersSlice, initialState } from '../../store/reducers/filters-slice';
 
 const FilterBySort = () => {
-  const { sorting } = useAppSelector((state) => state.filtersSlice);
+  const state = useAppSelector((state) => state.filtersSlice);
+  const { sorting } = state;
   const dispatch = useAppDispatch();
 
   const formik = useFormik({
@@ -27,6 +28,12 @@ const FilterBySort = () => {
   useEffect(() => {
     dispatch(filtersSlice.actions.updateSorting(formik.values));
   }, [formik.values, dispatch]);
+
+  useEffect(() => {
+    if (JSON.stringify(state) === JSON.stringify(initialState)) {
+      formik.resetForm();
+    }
+  }, [state, formik]);
 
   return (
     <Block>
