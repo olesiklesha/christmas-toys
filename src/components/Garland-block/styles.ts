@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 import { GARLAND_COLOR } from '../../constants';
 
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const GarlandBtn = styled.button<{ color: string }>`
   width: 24px;
   height: 24px;
@@ -89,6 +94,7 @@ export const LabelToggle = styled.label`
   justify-content: center;
   cursor: pointer;
   position: relative;
+  margin-left: auto;
 `;
 
 export const SwitchToggle = styled.div`
