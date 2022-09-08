@@ -20,6 +20,10 @@ export const COLORS = ['white', 'yellow', 'red', 'blue', 'green'];
 
 export const SIZES = ['big', 'medium', 'small'];
 
+export const TREE_ARR = [1, 2, 3, 4, 5, 6];
+
+export const BG_ARR = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 export const SELECTED_LS = 'ct_ls_st';
 
 export const FILTERS_LS = 'ct_ls_f';

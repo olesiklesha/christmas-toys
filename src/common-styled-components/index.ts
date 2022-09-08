@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import bgImage from '../assets/images/main-bg.jpg';
+import { BlockTitle } from '../components/Filters-section/styles';
 
 export const MainContainer = styled.main`
   background-size: cover;
@@ -26,4 +27,8 @@ export const SettingsBtnContainer = styled.div`
   flex-wrap: wrap;
   gap: 15px;
   width: 100%;
+`;
+
+export const SettingsTitle = styled(BlockTitle)`
+  margin: 20px 0 10px;
 `;

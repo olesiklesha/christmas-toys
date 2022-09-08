@@ -1,10 +1,10 @@
 import React from 'react';
-import { BlockTitle } from '../Filters-section/styles';
+import { SettingsTitle } from '../../common-styled-components';
 
 const BGBlock = () => {
   return (
     <div>
-      <BlockTitle>choose a background</BlockTitle>
+      <SettingsTitle>choose a background</SettingsTitle>
     </div>
   );
 };

@@ -1,12 +1,17 @@
 import React from 'react';
-import { BlockTitle } from '../Filters-section/styles';
-import { SettingsBtnContainer } from '../../common-styled-components';
+import { SettingsBtnContainer, SettingsTitle } from '../../common-styled-components';
+import { TreeBtn } from './styles';
+import { TREE_ARR } from '../../constants';
 
 const TreeBlock = () => {
   return (
     <div>
-      <BlockTitle>choose a christmas tree</BlockTitle>
-      <SettingsBtnContainer>btns</SettingsBtnContainer>
+      <SettingsTitle>choose a christmas tree</SettingsTitle>
+      <SettingsBtnContainer>
+        {TREE_ARR.map((el) => (
+          <TreeBtn i={el} key={Date.now() + el} />
+        ))}
+      </SettingsBtnContainer>
     </div>
   );
 };
