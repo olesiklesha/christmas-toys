@@ -4,6 +4,22 @@ export enum AppRoutes {
   TREE = '/tree',
 }
 
+export enum GARLAND_COLOR {
+  MULTI = 'multicolor',
+  RED = 'red',
+  BLUE = 'blue',
+  YELLOW = 'yellow',
+  GREEN = 'green',
+}
+
+export const COLORS_ARR = [
+  GARLAND_COLOR.MULTI,
+  GARLAND_COLOR.BLUE,
+  GARLAND_COLOR.RED,
+  GARLAND_COLOR.GREEN,
+  GARLAND_COLOR.YELLOW,
+];
+
 export const MIN_YEAR = 1940;
 
 export const MAX_YEAR = 2020;

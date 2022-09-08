@@ -1,5 +1,5 @@
 import React from 'react';
-import { BGBlock, EffectBtnGroup, TreeBlock } from '..';
+import { BGBlock, EffectBtnGroup, GarlandBlock, TreeBlock } from '..';
 import { Container } from './styles';
 
 const TreeSettings = () => {
@@ -8,6 +8,7 @@ const TreeSettings = () => {
       <EffectBtnGroup />
       <TreeBlock />
       <BGBlock />
+      <GarlandBlock />
     </Container>
   );
 };
