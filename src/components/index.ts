@@ -12,3 +12,5 @@ export { default as TreeField } from './Tree-field';
 export { default as TreeSettings } from './Tree-settings';
 export { default as TreeToys } from './Tree-toys';
 export { default as EffectBtnGroup } from './Effect-button-group';
+export { default as BGBlock } from './Background-block';
+export { default as TreeBlock } from './Tree-block';

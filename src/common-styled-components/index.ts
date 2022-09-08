@@ -20,3 +20,10 @@ export const Container = styled.section`
 export const BlurContainer = styled(Container)`
   backdrop-filter: ${(p) => p.theme.filter};
 `;
+
+export const SettingsBtnContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+`;
