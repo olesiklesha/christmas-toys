@@ -81,3 +81,81 @@ export const GarlandBtn = styled.button<{ color: string }>`
     }
   }}
 `;
+
+export const LabelToggle = styled.label`
+  display: inline-block;
+  width: 70px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+`;
+
+export const SwitchToggle = styled.div`
+  position: relative;
+  width: 70px;
+  height: 32px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    position: absolute;
+    display: block;
+    padding-right: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    line-height: 30px;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+
+  &::before {
+    content: 'On';
+    padding-left: 8px;
+    background-color: #278d9f;
+    color: #fff;
+    transform: translateX(-100%);
+  }
+
+  &::after {
+    content: 'Off';
+    background-color: rgba(31, 112, 127, 0.3);
+    color: #278d9f;
+    text-align: right;
+  }
+`;
+
+export const SwitchTarget = styled.div`
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0 2px;
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: 3px;
+  bottom: 0;
+  right: 42px;
+  transition: all 0.4s;
+`;
+
+export const InputToggle = styled.input`
+  opacity: 0;
+  position: absolute;
+
+  &:checked + ${SwitchToggle} {
+    &:after {
+      transform: translateX(100%);
+    }
+
+    &:before {
+      transform: translateX(0);
+    }
+  }
+
+  &:checked ~ ${SwitchTarget} {
+    transform: translateX(38px);
+  }
+`;
