@@ -1,6 +1,6 @@
 export { default as Header } from './Header';
 export { default as Card } from './Card';
-export { default as FiltersSection } from './FiltersSection';
+export { default as FiltersSection } from './Filters-section';
 export { default as FilterByValue } from './Filter-by-value';
 export { default as FilterByRange } from './Filter-by-range';
 export { default as FilterBySort } from './Filter-by-sort';
@@ -8,3 +8,6 @@ export { default as YearsInput } from './Input-years';
 export { default as CopiesInput } from './Input-copies';
 export { default as QuantityCounter } from './Quantity-counter';
 export { default as ContextCatcher } from './Context-catcher';
+export { default as TreeField } from './Tree-field';
+export { default as TreeSettings } from './Tree-settings';
+export { default as TreeToys } from './Tree-toys';
