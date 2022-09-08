@@ -1,5 +1,5 @@
 import React from 'react';
-import { Block, BlockTitle } from '../FiltersSection/styles';
+import { Block, BlockTitle } from '../Filters-section/styles';
 import { CopiesInput, YearsInput } from '../index';
 import 'react-input-range/lib/css/index.css';
 import './styles.css';

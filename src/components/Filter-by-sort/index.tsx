@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { Block, BlockTitle } from '../FiltersSection/styles';
+import { Block, BlockTitle } from '../Filters-section/styles';
 import { BtnContainer, Button, SearchInput, Select } from './styles';
 import { QuantityCounter } from '../index';
 import { useAppDispatch, useAppSelector } from '../../hooks';

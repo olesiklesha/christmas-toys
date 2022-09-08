@@ -3,10 +3,10 @@ import { AudioBtn, SnowBtn } from './styles';
 
 const EffectBtnGroup = () => {
   return (
-    <>
+    <div>
       <AudioBtn />
       <SnowBtn />
-    </>
+    </div>
   );
 };
 
