@@ -1,7 +1,12 @@
 import React from 'react';
+import { EffectBtnGroup } from '..';
 
 const TreeSettings = () => {
-  return <div>this is tree settings</div>;
+  return (
+    <>
+      <EffectBtnGroup />
+    </>
+  );
 };
 
 export default TreeSettings;

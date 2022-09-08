@@ -11,3 +11,4 @@ export { default as ContextCatcher } from './Context-catcher';
 export { default as TreeField } from './Tree-field';
 export { default as TreeSettings } from './Tree-settings';
 export { default as TreeToys } from './Tree-toys';
+export { default as EffectBtnGroup } from './Effect-button-group';
