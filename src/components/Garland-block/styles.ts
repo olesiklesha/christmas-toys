@@ -95,6 +95,7 @@ export const LabelToggle = styled.label`
   cursor: pointer;
   position: relative;
   margin-left: auto;
+  margin-right: 15px;
 `;
 
 export const SwitchToggle = styled.div`
