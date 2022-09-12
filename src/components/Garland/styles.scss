@@ -1,0 +1,232 @@
+@mixin on-circle($item-count, $circle-size, $item-size, $deg, $rotate) {
+  position: absolute;
+  width: $circle-size;
+  height: $circle-size;
+  padding: 0;
+  margin-top: 60px;
+  border-radius: 50%;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $item-size;
+    height: $item-size;
+    margin: -($item-size / 2);
+    background-color: red;
+    border-radius: 50%;
+
+    $angle: (-$deg / $item-count);
+    $rot: $rotate;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg)
+        translate($circle-size / 2)
+        rotate($rot * -1deg);
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
+}
+
+.garland-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 70px);
+  width: 800px;
+  top: 0;
+  left: 50%;
+  margin-left: -400px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+.light-rope:first-of-type {
+  @include on-circle(
+          $item-count: 5,
+          $circle-size: 185px,
+          $item-size: 5px,
+          $deg: 60,
+          $rotate: 115
+  );
+}
+
+.light-rope:nth-of-type(2) {
+  @include on-circle(
+          $item-count: 7,
+          $circle-size: 245px,
+          $item-size: 5px,
+          $deg: 60,
+          $rotate: 115
+  );
+}
+
+.light-rope:nth-of-type(3) {
+  @include on-circle(
+          $item-count: 8,
+          $circle-size: 305px,
+          $item-size: 5px,
+          $deg: 60,
+          $rotate: 115
+  );
+}
+
+.light-rope:nth-of-type(4) {
+  @include on-circle(
+          $item-count: 11,
+          $circle-size: 365px,
+          $item-size: 5px,
+          $deg: 60,
+          $rotate: 115
+  );
+}
+
+.light-rope:nth-of-type(5) {
+  @include on-circle(
+          $item-count: 18,
+          $circle-size: 440px,
+          $item-size: 5px,
+          $deg: 65,
+          $rotate: 117
+  );
+}
+
+.light-rope:nth-of-type(6) {
+  @include on-circle(
+          $item-count: 21,
+          $circle-size: 520px,
+          $item-size: 5px,
+          $deg: 65,
+          $rotate: 120
+  );
+}
+
+.light-rope:nth-of-type(7) {
+  @include on-circle(
+          $item-count: 27,
+          $circle-size: 590px,
+          $item-size: 5px,
+          $deg: 67,
+          $rotate: 119
+  );
+}
+
+.light-rope:nth-of-type(8) {
+  @include on-circle(
+          $item-count: 29,
+          $circle-size: 670px,
+          $item-size: 5px,
+          $deg: 73,
+          $rotate: 123
+  );
+}
+
+.multicolor {
+  animation-name: flash-3;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  &:nth-of-type(3n + 1) {
+    background-color: rgb(53, 12, 236);
+    animation-name: flash-1;
+  }
+  &:nth-of-type(2n) {
+    background-color: yellow;
+    animation-name: flash-2;
+  }
+}
+
+.red {
+  animation-name: flash-3;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.blue {
+  animation-name: flash-1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  background-color: rgb(53, 12, 236);
+}
+.yellow {
+  animation-name: flash-2;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  background-color: yellow;
+}
+.green {
+  animation-name: flash-4;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  background-color: rgb(64, 236, 12);
+}
+
+@keyframes flash-1 {
+  0%,
+  100% {
+    border: 1px solid rgb(53, 12, 236);
+    background: rgb(53, 12, 236);
+    box-shadow: 0 0 12px 3px rgb(53, 12, 236);
+  }
+  50% {
+    border: 1px solid rgb(53, 12, 236);
+    background: rgb(53, 12, 236);
+    box-shadow: 0 0 12px 3px rgba(53, 12, 236, 0.692);
+  }
+}
+
+@keyframes flash-2 {
+  0%,
+  100% {
+    border: 1px solid yellow;
+    background: yellow;
+    box-shadow: 0 0 12px 3px yellow;
+  }
+  50% {
+    border: 1px solid yellow;
+    background: rgba(210, 185, 43, 0.4);
+    box-shadow: 0 0 12px 3px rgba(219, 190, 24, 0.425);
+  }
+}
+
+@keyframes flash-3 {
+  0%,
+  100% {
+    border: 1px solid #8e0717;
+    background: #8e0717;
+    box-shadow: 0 0 12px 3px #8e0717;
+  }
+  50% {
+    border: 1px solid #8e0717;
+    background: rgba(142, 7, 23, 0.4);
+    box-shadow: 0 0 12px 3px rgba(142, 7, 23, 0.2);
+  }
+}
+
+@keyframes flash-4 {
+  0%,
+  100% {
+    border: 1px solid rgb(64, 236, 12);
+    background: rgb(64, 236, 12);
+    box-shadow: 0 0 12px 3px rgb(64, 236, 12);
+  }
+  50% {
+    border: 1px solid rgb(64, 236, 12);
+    background: rgba(45, 142, 7, 0.4);
+    box-shadow: 0 0 12px 3px rgba(38, 142, 7, 0.719);
+  }
+}
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}

@@ -68,3 +68,14 @@ export const TREE_SET_INIT_STATE = Object.freeze<ITreeSettings>({
   music: false,
   snow: false,
 });
+
+export const GARLAND = {
+  line1: new Array(5).fill('a'),
+  line2: new Array(7).fill('b'),
+  line3: new Array(8).fill('c'),
+  line4: new Array(11).fill('d'),
+  line5: new Array(18).fill('f'),
+  line6: new Array(21).fill('g'),
+  line7: new Array(27).fill('h'),
+  line8: new Array(29).fill('e'),
+};
