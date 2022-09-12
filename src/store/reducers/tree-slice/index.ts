@@ -38,8 +38,12 @@ export const treeSettingsSlice = createSlice({
       state.garland.isOn = !state.garland.isOn;
       window.localStorage.setItem(TREE_LS, JSON.stringify(state));
     },
+    reset(state) {
+      Object.assign(state, TREE_SET_INIT_STATE);
+      window.localStorage.setItem(TREE_LS, JSON.stringify(state));
+    },
   },
 });
 
-export const { setTree, setBg, setGarlandColor, toggleGarland } = treeSettingsSlice.actions;
+export const { setTree, setBg, setGarlandColor, toggleGarland, reset } = treeSettingsSlice.actions;
 export default treeSettingsSlice.reducer;
