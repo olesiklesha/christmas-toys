@@ -1,3 +1,5 @@
+import { ITreeSettings } from '../store/reducers/tree-slice';
+
 export enum AppRoutes {
   MAIN = '/',
   TOYS = '/toys',
@@ -44,6 +46,8 @@ export const SELECTED_LS = 'ct_ls_st';
 
 export const FILTERS_LS = 'ct_ls_f';
 
+export const TREE_LS = 'ct_ls_t';
+
 export const FILTERS_INIT_STATE = Object.freeze({
   values: { shapes: [], colors: [], sizes: [], favourite: false },
   copiesRange: { min: MIN_COUNT, max: MAX_COUNT },
@@ -52,4 +56,15 @@ export const FILTERS_INIT_STATE = Object.freeze({
     search: '',
     sort: 'str-max',
   },
+});
+
+export const TREE_SET_INIT_STATE = Object.freeze<ITreeSettings>({
+  tree: 1,
+  bg: 1,
+  garland: {
+    isOn: false,
+    color: GARLAND_COLOR.MULTI,
+  },
+  music: false,
+  snow: false,
 });
