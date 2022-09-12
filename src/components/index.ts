@@ -16,3 +16,4 @@ export { default as BGBlock } from './Background-block';
 export { default as TreeBlock } from './Tree-block';
 export { default as GarlandBlock } from './Garland-block';
 export { default as Tree } from './Tree';
+export { default as ToyCard } from './Toy-card';
