@@ -14,5 +14,5 @@ export const ToyImage = styled.img<{ x: number; y: number }>`
   height: 60px;
   object-fit: contain;
   cursor: grab;
-  z-index: 9999;
+  z-index: 1;
 `;

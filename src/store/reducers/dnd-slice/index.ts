@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface DraggableItem {
+export interface IDraggableItem {
   target: string;
   x: number;
   y: number;
@@ -11,7 +11,8 @@ export interface DndSliceState {
   x: number;
   y: number;
   aboveDropZone: boolean;
-  displaced: DraggableItem[];
+  displaced: IDraggableItem[];
+  onDropZoneStart: boolean;
 }
 
 const initialState: DndSliceState = {
@@ -20,33 +21,56 @@ const initialState: DndSliceState = {
   y: 0,
   aboveDropZone: false,
   displaced: [],
+  onDropZoneStart: false,
 };
 
 export const dndSlice = createSlice({
   name: 'dnd',
   initialState,
   reducers: {
-    setTarget(state, action: PayloadAction<string>) {
-      state.target = action.payload;
+    setTarget(
+      state,
+      action: PayloadAction<{ onDrag: boolean; num: string; x?: number; y?: number }>
+    ) {
+      state.target = action.payload.num;
+      state.onDropZoneStart = action.payload.onDrag;
+      state.x = action.payload.x ?? 0;
+      state.y = action.payload.y ?? 0;
       state.aboveDropZone = false;
     },
     toggleAboveDropZone(state, action: PayloadAction<boolean>) {
       state.aboveDropZone = action.payload;
     },
-    finishDrag(state, action: PayloadAction<DraggableItem>) {
+    finishDrag(state, action: PayloadAction<IDraggableItem>) {
       const { x, y, target } = action.payload;
-      if (state.aboveDropZone) {
+      //dnd on tree
+      if (state.aboveDropZone && state.onDropZoneStart) {
+        state.displaced = state.displaced.map((el) => {
+          if (el.target === target && el.x === state.x && el.y === state.y) {
+            return action.payload;
+          }
+          return el;
+        });
+      }
+
+      // remove toy
+      if (!state.aboveDropZone && state.x !== 0 && state.y !== 0) {
+        state.displaced = state.displaced.filter((el) => el.x !== state.x && el.y !== state.y);
+      }
+
+      //add toy
+      if (state.aboveDropZone && state.x === 0 && state.y === 0) {
         state.displaced.push({
           target,
           x,
           y,
         });
-      } else {
-        state.target = null;
-        state.x = 0;
-        state.y = 0;
-        state.aboveDropZone = false;
       }
+
+      state.target = null;
+      state.x = 0;
+      state.y = 0;
+      state.aboveDropZone = false;
     },
   },
 });

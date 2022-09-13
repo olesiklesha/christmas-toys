@@ -1,12 +1,22 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Image, ToyImage } from './styles';
 import maps from '../../data/maps.json';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { toggleAboveDropZone } from '../../store/reducers/dnd-slice';
+import {
+  finishDrag,
+  IDraggableItem,
+  setTarget,
+  toggleAboveDropZone,
+} from '../../store/reducers/dnd-slice';
 
 const Tree: FC<{ i: number }> = ({ i }) => {
   const dispatch = useAppDispatch();
   const { displaced } = useAppSelector((state) => state.dndSlice);
+  const [cords, setCords] = useState({
+    cordX: 0,
+    cordY: 0,
+  });
+
   const handleDragOver = (e: React.DragEvent<HTMLAreaElement>) => {
     e.preventDefault();
     dispatch(toggleAboveDropZone(true));
@@ -14,6 +24,33 @@ const Tree: FC<{ i: number }> = ({ i }) => {
 
   const handleDragLeave = () => {
     dispatch(toggleAboveDropZone(false));
+  };
+
+  const handleDragStart = (e: React.DragEvent<HTMLImageElement>, el: IDraggableItem) => {
+    setCords({
+      cordX: e.clientX - e.currentTarget.getBoundingClientRect().left,
+      cordY: e.clientY - e.currentTarget.getBoundingClientRect().top,
+    });
+    dispatch(
+      setTarget({
+        onDrag: true,
+        num: el.target,
+        x: el.x,
+        y: el.y,
+      })
+    );
+  };
+
+  const dragEndHandler = (e: React.DragEvent<HTMLImageElement>, el: IDraggableItem) => {
+    e.preventDefault();
+    dispatch(
+      finishDrag({
+        target: el.target,
+        y: e.pageY - cords.cordY - 70,
+        x: e.pageX - cords.cordX,
+      })
+    );
+    setCords({ cordX: 0, cordY: 0 });
   };
 
   return (
@@ -34,6 +71,8 @@ const Tree: FC<{ i: number }> = ({ i }) => {
             x={el.x}
             y={el.y}
             src={`https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${el.target}.png`}
+            onDragStart={(e) => handleDragStart(e, el)}
+            onDragEnd={(e) => dragEndHandler(e, el)}
           />
         ))}
       <Image

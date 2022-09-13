@@ -11,11 +11,11 @@ export const Container = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
 `;
 
-export const ToyImage = styled.img`
+export const ToyImage = styled.img<{ isDraggable: boolean }>`
   width: 60px;
   height: 60px;
   object-fit: contain;
-  cursor: grab;
+  cursor: ${(p) => (p.isDraggable ? 'grab' : 'auto')};
 `;
 
 export const Counter = styled.span`

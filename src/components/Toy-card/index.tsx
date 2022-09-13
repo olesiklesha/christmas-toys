@@ -21,17 +21,15 @@ const ToyCard: FC<IToy> = ({ count, num }) => {
   const dispatch = useAppDispatch();
 
   const dragStartHandler = (e: React.DragEvent<HTMLImageElement>) => {
-    console.log('drag');
     setCords({
       cordX: e.clientX - e.currentTarget.getBoundingClientRect().left,
       cordY: e.clientY - e.currentTarget.getBoundingClientRect().top,
     });
-    dispatch(setTarget(num));
+    dispatch(setTarget({ onDrag: false, num }));
   };
 
   const dragEndHandler = (e: React.DragEvent<HTMLImageElement>) => {
     e.preventDefault();
-    console.log('drop');
     dispatch(
       finishDrag({
         target: num,
@@ -44,6 +42,7 @@ const ToyCard: FC<IToy> = ({ count, num }) => {
   return (
     <Container>
       <ToyImage
+        isDraggable={Boolean(counter)}
         src={`https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${num}.png`}
         draggable={Boolean(counter)}
         onDragStart={(e) => dragStartHandler(e)}
