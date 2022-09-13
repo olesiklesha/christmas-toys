@@ -11,12 +11,10 @@ export const Container = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
 `;
 
-export const ToyImage = styled.div<{ i: string }>`
+export const ToyImage = styled.img`
   width: 60px;
   height: 60px;
-  background-size: contain;
-  background-image: url(${(p) =>
-    `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${p.i}.png`});
+  object-fit: contain;
   cursor: grab;
 `;
 
