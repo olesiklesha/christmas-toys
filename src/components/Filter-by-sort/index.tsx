@@ -7,7 +7,7 @@ import { useFormik } from 'formik';
 import { resetSelectedToys } from '../../store/reducers/selected-toys-slice';
 import { resetFilters, updateSorting } from '../../store/reducers/filters-slice';
 import { FILTERS_INIT_STATE } from '../../constants';
-import { reset } from '../../store/reducers/tree-slice';
+import { resetTreeSettings } from '../../store/reducers/tree-slice';
 import { resetDnd } from '../../store/reducers/dnd-slice';
 
 const FilterBySort = () => {
@@ -22,7 +22,7 @@ const FilterBySort = () => {
 
   const handleResetMemory = useCallback(() => {
     dispatch(resetSelectedToys());
-    dispatch(reset());
+    dispatch(resetTreeSettings());
     dispatch(resetDnd());
   }, [dispatch]);
 

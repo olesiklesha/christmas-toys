@@ -46,13 +46,20 @@ export const treeSettingsSlice = createSlice({
       state.music = !state.music;
       window.localStorage.setItem(TREE_LS, JSON.stringify(state));
     },
-    reset(state) {
+    resetTreeSettings(state) {
       Object.assign(state, TREE_SET_INIT_STATE);
       window.localStorage.setItem(TREE_LS, JSON.stringify(state));
     },
   },
 });
 
-export const { setTree, setBg, setGarlandColor, toggleGarland, toggleSnow, toggleMusic, reset } =
-  treeSettingsSlice.actions;
+export const {
+  setTree,
+  setBg,
+  setGarlandColor,
+  toggleGarland,
+  toggleSnow,
+  toggleMusic,
+  resetTreeSettings,
+} = treeSettingsSlice.actions;
 export default treeSettingsSlice.reducer;
