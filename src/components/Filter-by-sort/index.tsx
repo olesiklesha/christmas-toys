@@ -8,6 +8,7 @@ import { resetSelectedToys } from '../../store/reducers/selected-toys-slice';
 import { resetFilters, updateSorting } from '../../store/reducers/filters-slice';
 import { FILTERS_INIT_STATE } from '../../constants';
 import { reset } from '../../store/reducers/tree-slice';
+import { resetDnd } from '../../store/reducers/dnd-slice';
 
 const FilterBySort = () => {
   const state = useAppSelector((state) => state.filtersSlice);
@@ -22,6 +23,7 @@ const FilterBySort = () => {
   const handleResetMemory = useCallback(() => {
     dispatch(resetSelectedToys());
     dispatch(reset());
+    dispatch(resetDnd());
   }, [dispatch]);
 
   const handleResetFilters = useCallback(() => {

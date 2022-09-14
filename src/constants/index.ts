@@ -48,6 +48,8 @@ export const FILTERS_LS = 'ct_ls_f';
 
 export const TREE_LS = 'ct_ls_t';
 
+export const TOYS_LS = 'ct_ls_toys';
+
 export const FILTERS_INIT_STATE = Object.freeze({
   values: { shapes: [], colors: [], sizes: [], favourite: false },
   copiesRange: { min: MIN_COUNT, max: MAX_COUNT },

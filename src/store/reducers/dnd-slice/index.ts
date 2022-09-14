@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TOYS_LS } from '../../../constants';
 
 export interface IDraggableItem {
   target: string;
@@ -15,12 +16,14 @@ export interface DndSliceState {
   onDropZoneStart: boolean;
 }
 
+const displacedMemory = window.localStorage.getItem(TOYS_LS);
+
 const initialState: DndSliceState = {
   target: null,
   x: 0,
   y: 0,
   aboveDropZone: false,
-  displaced: [],
+  displaced: displacedMemory ? JSON.parse(displacedMemory) : [],
   onDropZoneStart: false,
 };
 
@@ -71,9 +74,14 @@ export const dndSlice = createSlice({
       state.x = 0;
       state.y = 0;
       state.aboveDropZone = false;
+      window.localStorage.setItem(TOYS_LS, JSON.stringify(state.displaced));
+    },
+    resetDnd(state) {
+      state.displaced = [];
+      window.localStorage.removeItem(TOYS_LS);
     },
   },
 });
 
-export const { setTarget, toggleAboveDropZone, finishDrag } = dndSlice.actions;
+export const { setTarget, toggleAboveDropZone, finishDrag, resetDnd } = dndSlice.actions;
 export default dndSlice.reducer;
