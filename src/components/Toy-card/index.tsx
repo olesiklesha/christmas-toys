@@ -39,11 +39,13 @@ const ToyCard: FC<IToy> = ({ count, num }) => {
     );
   };
 
+  const currentNum = +num + 1;
+
   return (
     <Container>
       <ToyImage
         isDraggable={Boolean(counter)}
-        src={`https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${num}.png`}
+        src={`https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${currentNum}.png`}
         draggable={Boolean(counter)}
         onDragStart={(e) => dragStartHandler(e)}
         onDragEnd={(e) => dragEndHandler(e)}
