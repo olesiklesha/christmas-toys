@@ -20,3 +20,13 @@ export interface ISortFilters {
   search: string;
   sort: string;
 }
+
+export interface ISnowflake {
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  offsetY: number;
+  offsetX: number;
+  fill: string;
+}
