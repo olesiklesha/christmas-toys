@@ -70,7 +70,9 @@ const Tree: FC<{ i: number }> = ({ i }) => {
             key={el.target + el.x + el.y}
             x={el.x}
             y={el.y}
-            src={`https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${el.target}.png`}
+            src={`https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${
+              +el.target + 1
+            }.png`}
             onDragStart={(e) => handleDragStart(e, el)}
             onDragEnd={(e) => dragEndHandler(e, el)}
           />

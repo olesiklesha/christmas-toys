@@ -11,6 +11,7 @@ export const AudioBtn = styled.button`
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${audioIcon});
+  cursor: pointer;
 `;
 
 export const SnowBtn = styled(AudioBtn)`
